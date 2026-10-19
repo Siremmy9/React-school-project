@@ -1,3 +1,11 @@
+import HeroSlider from "../components/HeroSlider";
+import StatsSection from "../components/StatsSection";
+
 export default function Home() {
-  return <h1 className="text-3xl font-bold">Home</h1>
+  return (
+    <>
+      <HeroSlider />
+      <StatsSection />
+    </>
+  );
 }
