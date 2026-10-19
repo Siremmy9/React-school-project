@@ -1,0 +1,3 @@
+export default function Staff() {
+  return <h1 className="text-3xl font-bold">Staff</h1>
+}
