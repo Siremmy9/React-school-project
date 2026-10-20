@@ -26,3 +26,6 @@ export const school = {
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d464.5759963602173!2d3.6532217315704663!3d6.473223739971658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bf950c1d3a5a9%3A0x662522ae15dbb88a!2sEaglesworld%20Global%20Schools!5e1!3m2!1sen!2sng!4v1791262427893!5m2!1sen!2sng",
   mapLink: "",
 };
+export const whatsappUrl = `https://wa.me/${school.whatsapp}?text=${encodeURIComponent(
+  "Hello, I would like to make an enquiry.",
+)}`;

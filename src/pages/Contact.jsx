@@ -2,6 +2,7 @@ import { useState } from "react";
 import PageHeader from "../components/PageHeader";
 import Container from "../components/Container";
 import WhatsAppIcon from "../components/WhatsAppIcon";
+import { school, whatsappUrl } from "../data/school";
 
 const initialForm = { name: "", email: "", message: "" };
 
@@ -10,11 +11,6 @@ const info = [
   { icon: "📞", label: "Phone", value: school.phone },
   { icon: "✉️", label: "Email", value: school.email },
 ];
-import { school } from "../data/school";
-
-const whatsappUrl = `https://wa.me/${school.whatsapp}?text=${encodeURIComponent(
-  "Hello, I would like to make an enquiry.",
-)}`;
 
 const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
   school.address,
@@ -159,17 +155,6 @@ export default function Contact() {
               allowFullScreen
             />
           </div>
-
-          {/* <div className="mt-6 text-center">
-            <a
-              href={directionsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700"
-            >
-              <span>🧭</span> Get Directions
-            </a>
-          </div> */}
         </div>
       </Container>
     </>
