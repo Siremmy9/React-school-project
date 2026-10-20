@@ -80,7 +80,6 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Right: the form space-y-6 */}
           <form
             onSubmit={handleSubmit}
             className="space-y-5 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8"

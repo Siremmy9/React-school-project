@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { navLinks } from "../data/navLinks";
 
-const links = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/academics", label: "Academics" },
-  { to: "/admissions", label: "Admissions" },
-  { to: "/news", label: "News & Events" },
-  { to: "/staff", label: "Staff" },
-  { to: "/contact", label: "Contact" },
-];
+// const links = [
+//   { to: "/", label: "Home" },
+//   { to: "/about", label: "About" },
+//   { to: "/academics", label: "Academics" },
+//   { to: "/admissions", label: "Admissions" },
+//   { to: "/news", label: "News & Events" },
+//   { to: "/staff", label: "Staff" },
+//   { to: "/contact", label: "Contact" },
+// ];
 
 const linkClass = ({ isActive }) =>
   `block rounded-lg px-3 py-2 text-sm font-medium transition ${
@@ -26,7 +27,7 @@ export default function Navbar() {
 
         {/* Desktop links */}
         <ul className="hidden gap-1 md:flex">
-          {links.map((link) => (
+          {navLinks.map((link) => (
             <li key={link.to}>
               <NavLink to={link.to} className={linkClass}>
                 {link.label}
@@ -78,7 +79,7 @@ export default function Navbar() {
       {/* Mobile menu */}
       {open && (
         <ul className="space-y-1 border-t border-slate-200 px-4 py-3 md:hidden">
-          {links.map((link) => (
+          {navLinks.map((link) => (
             <li key={link.to}>
               <NavLink
                 to={link.to}

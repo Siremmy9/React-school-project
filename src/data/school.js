@@ -4,7 +4,12 @@ export const school = {
   whatsapp: "2348141713798",
   email: "info@siremmy9.com",
   address: "12 Emmys Road, Emmanuel City, Lagos ",
-  // classes: ["Crèche", "Nursery", "Primary", "Secondary"],
+  tagline: "Nurturing curious minds and building confident leaders.",
+  socials: [
+    { platform: "facebook", label: "Facebook", url: "facebook" },
+    { platform: "instagram", label: "Instagram", url: "insta" },
+    { platform: "youtube", label: "YouTube", url: "youtube" },
+  ],
   classes: [
     "Crèche",
     "Nursery",
