@@ -3,11 +3,13 @@ import { NavLink, Link, Outlet, useLocation } from "react-router-dom";
 import { school } from "../data/school";
 import { adminNav } from "../data/adminNav";
 import AdminIcon from "./AdminIcon";
+import { useAuth } from "../context/AuthContext";
 
 // Fake for now. Later these numbers come from the database.
 const badges = { "/admin/admissions": 1 };
 
 export default function AdminLayout() {
+  const { user, logout } = useAuth();
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
 
@@ -23,7 +25,7 @@ export default function AdminLayout() {
 
   return (
     <div className="min-h-screen bg-slate-100">
-      {/* Dark overlay (phones, while the menu is open) */}
+      {/* Dark overlay (phones, while the menu is open ) */}
       {open && (
         <div
           className="fixed inset-0 z-40 bg-black/50 md:hidden"
@@ -66,13 +68,14 @@ export default function AdminLayout() {
         </nav>
 
         <div className="border-t border-slate-800 p-3">
-          <Link
-            to="/admin/login"
-            className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-300 transition hover:bg-slate-800 hover:text-white"
+          <button
+            type="button"
+            onClick={logout}
+            className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-300 transition hover:bg-slate-800 hover:text-white"
           >
             <AdminIcon name="logout" className="h-5 w-5" />
             Logout
-          </Link>
+          </button>
         </div>
       </aside>
 

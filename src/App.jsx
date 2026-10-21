@@ -9,6 +9,8 @@ import Staff from "./pages/Staff";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
+import RequireAuth from "./admin/RequireAuth";
+import AdminLogin from "./admin/AdminLogin";
 import AdminLayout from "./admin/AdminLayout";
 import AdminDashboard from "./admin/pages/AdminDashboard";
 import AdminAdmissions from "./admin/pages/AdminAdmissions";
@@ -34,7 +36,16 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Route>
-        <Route path="/admin" element={<AdminLayout />}>
+        <Route path="/admin/login" element={<AdminLogin />} />
+
+        <Route
+          path="/admin"
+          element={
+            <RequireAuth>
+              <AdminLayout />
+            </RequireAuth>
+          }
+        >
           <Route index element={<AdminDashboard />} />
           <Route path="admissions" element={<AdminAdmissions />} />
           <Route path="students" element={<AdminStudents />} />

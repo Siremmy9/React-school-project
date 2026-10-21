@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { navLinks } from "../data/navLinks";
+import { useAuth } from "../context/AuthContext";
 
 // const links = [
 //   { to: "/", label: "Home" },
@@ -19,6 +20,7 @@ const linkClass = ({ isActive }) =>
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const { user } = useAuth();
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
@@ -26,15 +28,23 @@ export default function Navbar() {
         <span className="text-xl font-bold text-blue-700">SirEmmy Academy</span>
 
         {/* Desktop links */}
-        <ul className="hidden gap-1 md:flex">
-          {navLinks.map((link) => (
-            <li key={link.to}>
-              <NavLink to={link.to} className={linkClass}>
-                {link.label}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
+        <div className="hidden items-center gap-1 md:flex">
+          <ul className="flex gap-1">
+            {navLinks.map((link) => (
+              <li key={link.to}>
+                <NavLink to={link.to} className={linkClass}>
+                  {link.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+          <Link
+            to="/admin"
+            className="ml-2 rounded-lg border border-blue-600 px-4 py-2 text-sm font-semibold text-blue-700 transition hover:bg-blue-600 hover:text-white"
+          >
+            {user ? "Dashboard" : "Admin Login"}
+          </Link>
+        </div>
 
         {/* Hamburger button (phones only) */}
         <button
@@ -90,6 +100,15 @@ export default function Navbar() {
               </NavLink>
             </li>
           ))}
+          <li>
+            <Link
+              to="/admin"
+              onClick={() => setOpen(false)}
+              className="block rounded-lg border border-blue-600 px-3 py-2 text-center text-sm font-semibold text-blue-700"
+            >
+              {user ? "Dashboard" : "Admin Login"}
+            </Link>
+          </li>
         </ul>
       )}
     </header>
